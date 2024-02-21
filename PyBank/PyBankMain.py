@@ -1,3 +1,7 @@
+#import os
+#current_directory = os.getcwd()
+#print("Current Directory:", current_directory)
+
 #Import needed modules
 import os
 import csv
@@ -10,25 +14,8 @@ ProfitLoss = []
 
 import os
 
-import os
-
-# Construct the file path using os.path.join() with the correct file name
-budget_data_csv = os.path.join("python-challenge", "PyBank", "Resources", "budget_data.csv")
-
-# Print the full path
-print("Full path to budget_data.csv:", budget_data_csv)
-
-
-
-# Construct the file path using os.path.join()
-budget_csv = os.path.join("python-challenge", "PyBank", "Resources", "budget_data.csv")
-
-
-
-
-
 #Instructions for reading CSV module
-budget_csv = os.path.join("python-challenge","PyBank","Resources","budget_data.csv")
+budget_csv = os.path.join("PyBank", "Resources", "budget_data.csv")
 
 #Open the CSV file
 #Convert Profit/Loss values to integers when reading them from CSV 
@@ -42,7 +29,14 @@ with open('budget_data.csv') as csvfile:
         # Append the date and profit/loss to the respective lists
         Date.append(row[0])
         ProfitLoss.append(profit_loss)
-   
+
+zipped_tuple = list(zip(Date,ProfitLoss))
+print(zipped_tuple)
+
+
+print(Date)  
+print(ProfitLoss) 
+
 #(1) Count the number of unique values in Date list
 unique_dates_count = len(set(Date))
 print("Number of unique values months in the dataset:", unique_dates_count)
