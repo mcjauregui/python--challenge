@@ -1,6 +1,27 @@
-#import os
-#current_directory = os.getcwd()
-#print("Current Directory:", current_directory)
+#Check current working directory
+import os
+print(os.getcwd())
+
+# Check if the file exists in the current working directory
+file_name = 'budget_data.csv'
+file_exists = os.path.exists(file_name)
+
+if file_exists:
+    print(f"The file {file_name} exists in the current working directory.")
+else:
+    print(f"The file {file_name} does not exist in the current working directory.")
+
+import os
+
+# Get a list of all files in the current working directory
+files_in_directory = os.listdir()
+
+# Print the list of files
+print("Files in the current working directory:")
+for file in files_in_directory:
+    print(file)
+
+
 
 #Import needed modules
 import os
@@ -12,10 +33,11 @@ import sys
 Date = []
 ProfitLoss = []
 
-import os
+# Construct the file path using os.path.join()
+budget_csv = os.path.join("PyBank", "Resources", "budget_data.csv")
 
 #Instructions for reading CSV module
-budget_csv = os.path.join("PyBank", "Resources", "budget_data.csv")
+budget_csv = os.path.join("PyBank","Resources","budget_data.csv")
 
 #Open the CSV file
 #Convert Profit/Loss values to integers when reading them from CSV 
@@ -29,14 +51,7 @@ with open('budget_data.csv') as csvfile:
         # Append the date and profit/loss to the respective lists
         Date.append(row[0])
         ProfitLoss.append(profit_loss)
-
-zipped_tuple = list(zip(Date,ProfitLoss))
-print(zipped_tuple)
-
-
-print(Date)  
-print(ProfitLoss) 
-
+   
 #(1) Count the number of unique values in Date list
 unique_dates_count = len(set(Date))
 print("Number of unique values months in the dataset:", unique_dates_count)
@@ -135,16 +150,3 @@ with open(output_file_path, 'w') as file:
 #print(greatest_decrease)
 #decrease_date = date[diff_list.index(greatest_decrease)]
 #print(decrease_date)
-
-#financial_analysis_cont = (
-#        f"Average Change: " totaldiff/len(diff_list) \n"
-#        f"Greatest Increase in Profits: " increase_date '('greatest_increase')'\n"
-#        f"Greatest Decrease in Profits: " decrease_date '('greatest_decrease')'\n"
-
-#print financial_analysis_cont results to the terminal
-#print(financial_analysis_cont, end="")
-
-#print financial_analysis and financial_analysis_cont to out_file txt file out_file.write(election_results)
-#        out_file.write(PyBank_Analysis.txt)
-
-#sys.stdout.close()
